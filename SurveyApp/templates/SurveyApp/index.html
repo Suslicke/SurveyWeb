@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Опросник{% endblock %}
+
+{% block content %}
+<div class="ui center aligned basic very padded segment" >
+    <h1 class="ui header" style="margin-top: 11em;">Создатель опросов
+        <div class="sub header">Создай свой опрос и поделись им с друзьям</div>
+    </h1>
+    <a href="{% url 'login' %}">
+        <div class="ui huge red button">Начать</div>
+    </a>
+</div>
+{% endblock %}

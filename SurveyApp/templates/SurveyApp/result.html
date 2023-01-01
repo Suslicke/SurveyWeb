@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Результаты - Опросник{% endblock %}
+
+{% block content %}
+<div class="ui aligned basic very padded segment grid">
+    <h1 class="ui header">Спасибо, что вы прошли опрос: {{ survey.title }}.</h1>
+    <div class="ui center aligned basic very padded segment">
+        <div class="ui header">Ваши результаты: </div>
+        {% for q in questions %}
+        <div>Ответ на вопрос {{ q.prompt }}</div>
+        {% if q.is_correct %}
+        <div>Верный</div>
+        {% else %}
+        <div>Не верный</div>
+        <div>Ваш ответ: {{ q.selected_options|join:", " }}</div>
+        <div>Верный ответ: {{ q.correct_options|join:", " }}</div>
+        {% endif %}
+        {% endfor %}
+        <h3>Процент верных ответов: {{ percent_correct }} %</h3>
+    </div>
+</div>
+{% endblock %}

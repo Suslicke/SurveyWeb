@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Старт - Опросник{% endblock %}
+
+{% block content %}
+<div class="ui center aligned basic very padded segment">
+    <h1 class="ui header">{{ survey.title }}
+        <div class="sub header">Вы были приглашены на опрос</div>
+    </h1>
+    <form method="post" action="{% url 'survey-submit' survey.pk %}" style="display: inline-block;">
+        {% csrf_token %}
+        <button type="submit" class="ui red button">Начать опрос
+    </form>
+</div>
+{% endblock %}
